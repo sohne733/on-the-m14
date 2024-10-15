@@ -1,0 +1,103 @@
+/* Base styles */
+.image-container {
+    position: relative;
+    display: inline-block; /* Allow hover effects */
+    width: 100%;
+    max-width: 100%; /* Ensure the container doesn't overflow */
+    text-align: center;
+}
+
+img {
+    width: 50%; /* Full width image */
+    height: 50%; /* Keep aspect ratio */
+    margin: 0 auto; /* Center image */
+    transition: filter 0.5s ease; /* Smooth blur transition */
+}
+
+.image-container h1, .image-container h2, .image-container h3 {
+    position: absolute;
+    color: #3a67b1;
+    font-family: "Playfair Display", serif;
+    font-size: 200px; /* Make font size responsive based on viewport width */
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    font-weight: 400;
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.image-container h1 {
+    top: 1%; /* Position the title */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+}
+
+.image-container h2 {
+    top: 15%; /* Position the subtitle */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.image-container h3 {
+    top: 30%; /* Position the third text */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Hover effect only on image */
+.image-container img:hover {
+    filter: blur(5px); /* Apply blur only when hovering on the image */
+}
+
+/* Show text when hovering on the image */
+.image-container img:hover ~ h1,
+.image-container img:hover ~ h2,
+.image-container img:hover ~ h3 {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* Restore original position */
+}
+
+/* Text Paragraph Styling */
+p, .custom-text {
+    color: #3a67b1;
+    font-family: "Playfair Display", serif;
+    font-size: 1.2rem; /* Adjusted to be responsive */
+    width: 80%; /* Flexible width */
+    max-width: 700px;
+    margin: 20px auto; /* Centered and spaced */
+    padding: 10px;
+    text-align: left;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .image-container h1, .image-container h2, .image-container h3 {
+        font-size: 10vw; /* Scale text up for larger screens */
+    }
+
+    p, .custom-text {
+        font-size: 1rem; /* Scale down for smaller screens */
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-container h1, .image-container h2, .image-container h3 {
+        font-size: 6vw; /* Smaller font size for tablet screens */
+    }
+
+    p, .custom-text {
+        font-size: 0.9rem; /* Adjust text for smaller screens */
+        width: 95%;
+    }
+}
+
+@media (max-width: 576px) {
+    .image-container h1, .image-container h2, .image-container h3 {
+        font-size: 5vw; /* Even smaller font size for mobile */
+    }
+
+    p, .custom-text {
+        font-size: 0.8rem; /* Smaller text size for mobile */
+        width: 100%;
+    }
+}
